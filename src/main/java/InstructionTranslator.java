@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by mwafi on 27/07/2017.
  */
-public class CoffeeMachine {
+public class InstructionTranslator {
 
     public String getDrinkMakerCommand(DrinkType typeDrink, SugarQuantity sugar) {
 
