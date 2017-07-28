@@ -1,4 +1,4 @@
-package commands;
+package coffeemachine.commands;
 
 import java.math.BigDecimal;
 

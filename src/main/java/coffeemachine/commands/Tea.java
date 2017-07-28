@@ -1,4 +1,4 @@
-package commands;
+package coffeemachine.commands;
 
 import java.math.BigDecimal;
 
@@ -14,7 +14,6 @@ public class Tea extends Command {
 
     public Tea(boolean isHot) {
         this();
-        if (isHot)
-            code = "Th";
+        this.isHot = isHot;
     }
 }

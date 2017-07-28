@@ -1,4 +1,6 @@
-package commands;
+package coffeemachine.commands;
+
+import coffeemachine.SugarQuantity;
 
 import java.math.BigDecimal;
 
@@ -9,8 +11,12 @@ public abstract class Command {
 
     protected String code;
     protected BigDecimal price;
+    protected boolean isHot = false;
 
     public String getCode() {
+        if (isHot) {
+            return code + "h";
+        }
         return code;
     }
 
@@ -21,4 +27,6 @@ public abstract class Command {
     public BigDecimal getRest(BigDecimal money) {
         return this.price.subtract(money);
     }
+
+
 }

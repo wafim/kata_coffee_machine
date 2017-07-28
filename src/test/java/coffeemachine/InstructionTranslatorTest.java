@@ -1,7 +1,11 @@
-import commands.Chocolate;
-import commands.Coffee;
-import commands.OrangeJuice;
-import commands.Tea;
+package coffeemachine;
+
+import coffeemachine.InstructionTranslator;
+import coffeemachine.SugarQuantity;
+import coffeemachine.commands.Chocolate;
+import coffeemachine.commands.Coffee;
+import coffeemachine.commands.OrangeJuice;
+import coffeemachine.commands.Tea;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

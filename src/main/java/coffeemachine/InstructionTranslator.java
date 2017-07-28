@@ -1,4 +1,6 @@
-import commands.Command;
+package coffeemachine;
+
+import coffeemachine.commands.Command;
 
 /**
  * Created by mwafi on 27/07/2017.
@@ -13,11 +15,18 @@ public class InstructionTranslator {
     }
 
     private String getSugarCode(SugarQuantity sugar) {
-
-        return SugarQuantity.ZERO.equals(sugar) ? "::" : (SugarQuantity.ONE.equals(sugar) ? ":1:0" : ":2:0");
+        switch (sugar) {
+            case ZERO:
+                return "::";
+            case ONE:
+                return ":1:0";
+            case TWO:
+                return ":2:0";
+            default:
+                return "";
+        }
 
     }
-
 
     public String getMessageContent(String message) {
 

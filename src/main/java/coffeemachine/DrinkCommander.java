@@ -1,5 +1,6 @@
+package coffeemachine;
 
-import commands.Command;
+import coffeemachine.commands.Command;
 
 import java.math.BigDecimal;
 
