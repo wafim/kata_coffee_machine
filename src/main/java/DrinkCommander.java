@@ -1,4 +1,6 @@
 
+import commands.Command;
+
 import java.math.BigDecimal;
 
 /**
@@ -9,36 +11,16 @@ public class DrinkCommander {
     public InstructionTranslator translator;
 
 
-    public String getCommand(BigDecimal price, DrinkType type, SugarQuantity quantity) {
+    public String getCommand(BigDecimal money, SugarQuantity quantity, Command command) {
         String result = "";
 
-        switch (type) {
 
-            case TEA:
-                if (price.compareTo(new BigDecimal("0.4")) != -1 ) {
-                    result = translator.getDrinkMakerCommand(type, quantity);
-                } else {
-                    result = String.valueOf(new BigDecimal("0.4").subtract(price));
-                }
-                break;
-            case CHOCOLATE:
-                if (price.compareTo(new BigDecimal("0.5")) != -1) {
-                    result = translator.getDrinkMakerCommand(type, quantity);
-
-                } else {
-                    result = String.valueOf(new BigDecimal("0.5").subtract(price));
-                }
-                break;
-            case COFFEE:
-                if (price.compareTo(new BigDecimal("0.6")) != -1) {
-                    result = translator.getDrinkMakerCommand(type, quantity);
-                } else {
-                    result = String.valueOf(new BigDecimal("0.6").subtract(price));
-                }
-                break;
-
-
+        if (money.compareTo(command.getPrice()) != -1) {
+            result = translator.getDrinkMakerCommand(command, quantity);
+        } else {
+            result = String.valueOf(command.getRest(money));
         }
+
         return result;
 
     }

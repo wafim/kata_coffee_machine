@@ -1,44 +1,27 @@
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import commands.Command;
 
 /**
  * Created by mwafi on 27/07/2017.
  */
 public class InstructionTranslator {
 
-    public String getDrinkMakerCommand(DrinkType typeDrink, SugarQuantity sugar) {
+    public String getDrinkMakerCommand(Command command, SugarQuantity sugarQuantity) {
 
-        String result = "";
 
-        switch (typeDrink) {
+        return command.getCode() + getSugarCode(sugarQuantity);
 
-            case TEA:
-                result = "T" + getSugarCode(sugar);
-                break;
-            case CHOCOLATE:
-                result = "H" + getSugarCode(sugar);
-                break;
-            case COFFEE:
-                result = "C" + getSugarCode(sugar);
-                break;
-        }
-
-        return result;
     }
 
     private String getSugarCode(SugarQuantity sugar) {
 
-        return SugarQuantity.ZERO == sugar ? "::" : (SugarQuantity.ONE == sugar ? ":1:0" : ":2:0");
+        return SugarQuantity.ZERO.equals(sugar) ? "::" : (SugarQuantity.ONE.equals(sugar) ? ":1:0" : ":2:0");
 
     }
 
 
     public String getMessageContent(String message) {
 
-        return message.replaceFirst("M:","");
+        return message.replaceFirst("M:", "");
 
     }
 }

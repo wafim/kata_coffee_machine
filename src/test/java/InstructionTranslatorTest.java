@@ -1,6 +1,10 @@
+import commands.Chocolate;
+import commands.Coffee;
+import commands.OrangeJuice;
+import commands.Tea;
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by mwafi on 27/07/2017.
@@ -11,21 +15,17 @@ public class InstructionTranslatorTest {
 
     @Test
     public void should_get_1_tea_with_1_sugar_and_a_stick() {
-
         //when
-        String result = instructionTranslator.getDrinkMakerCommand(DrinkType.TEA, SugarQuantity.ONE);
-
+        String result = instructionTranslator.getDrinkMakerCommand(new Tea(), SugarQuantity.ONE);
         //then
         assertThat(result).isEqualTo("T:1:0");
-
-
     }
 
     @Test
     public void should_get_1_tea_without_sugar() {
 
         //when
-        String result = instructionTranslator.getDrinkMakerCommand(DrinkType.TEA, SugarQuantity.ZERO);
+        String result = instructionTranslator.getDrinkMakerCommand(new Tea(), SugarQuantity.ZERO);
 
         //then
         assertThat(result).isEqualTo("T::");
@@ -37,7 +37,7 @@ public class InstructionTranslatorTest {
     public void should_get_1_chocolate_with_no_sugar__and_therefore_no_stick() {
 
         //when
-        String result = instructionTranslator.getDrinkMakerCommand(DrinkType.CHOCOLATE, SugarQuantity.ZERO);
+        String result = instructionTranslator.getDrinkMakerCommand(new Chocolate(), SugarQuantity.ZERO);
 
         //then
         assertThat(result).isEqualTo("H::");
@@ -49,7 +49,7 @@ public class InstructionTranslatorTest {
     public void should_get_1_coffee_with_2_sugars_and_a_stick() {
 
         //when
-        String result = instructionTranslator.getDrinkMakerCommand(DrinkType.COFFEE, SugarQuantity.TWO);
+        String result = instructionTranslator.getDrinkMakerCommand(new Coffee(), SugarQuantity.TWO);
 
         //then
         assertThat(result).isEqualTo("C:2:0");
@@ -81,4 +81,48 @@ public class InstructionTranslatorTest {
 
     }
 
+
+    @Test
+    public void should_get_1_hot_chocolate_with_1_sugar_and_a_stick() {
+        //when
+        String result = instructionTranslator.getDrinkMakerCommand(new Chocolate(true), SugarQuantity.ONE);
+
+        //then
+        assertThat(result).isEqualTo("Hh:1:0");
+
+
+    }
+
+    @Test
+    public void should_get_1_hot_coffee_with_1_sugar_and_a_stick() {
+        //when
+        String result = instructionTranslator.getDrinkMakerCommand(new Coffee(true), SugarQuantity.ONE);
+
+        //then
+        assertThat(result).isEqualTo("Ch:1:0");
+
+
+    }
+
+    @Test
+    public void should_get_1_hot_tea_with_1_sugar_and_a_stick() {
+        //when
+        String result = instructionTranslator.getDrinkMakerCommand(new Tea(true), SugarQuantity.ONE);
+
+        //then
+        assertThat(result).isEqualTo("Th:1:0");
+
+
+    }
+
+    @Test
+    public void should_get_1_orange_with_2_sugar_and_a_stick() {
+        //when
+        String result = instructionTranslator.getDrinkMakerCommand(new OrangeJuice(), SugarQuantity.TWO);
+
+        //then
+        assertThat(result).isEqualTo("O:2:0");
+
+
+    }
 }
