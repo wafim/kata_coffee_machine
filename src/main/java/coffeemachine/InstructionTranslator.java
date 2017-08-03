@@ -1,16 +1,16 @@
 package coffeemachine;
 
-import coffeemachine.commands.Command;
+import coffeemachine.items.Item;
 
 /**
  * Created by mwafi on 27/07/2017.
  */
 public class InstructionTranslator {
 
-    public String getDrinkMakerCommand(Command command, SugarQuantity sugarQuantity) {
+    public String getDrinkMakerCommand(Item item, SugarQuantity sugarQuantity) {
 
 
-        return command.getCode() + getSugarCode(sugarQuantity);
+        return item.getCode() + getSugarCode(sugarQuantity);
 
     }
 

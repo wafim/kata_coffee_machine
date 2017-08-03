@@ -1,11 +1,8 @@
 package coffeemachine;
 
-import coffeemachine.DrinkCommander;
-import coffeemachine.InstructionTranslator;
-import coffeemachine.SugarQuantity;
-import coffeemachine.commands.Chocolate;
-import coffeemachine.commands.Coffee;
-import coffeemachine.commands.Tea;
+import coffeemachine.items.Chocolate;
+import coffeemachine.items.Coffee;
+import coffeemachine.items.Tea;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
